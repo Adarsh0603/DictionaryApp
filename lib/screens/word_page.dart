@@ -10,17 +10,34 @@ class WordPage extends StatelessWidget {
 
   WordPage(this.wordDetails);
 
-  List<Widget> definitions(){
-    List<Text> definitions=[];
-    for(int i=0;i<wordDetails.length;i++) {
-      var oneDefinition = Text(
-        wordDetails[i]['def'],
-        style: kDefinitionTextStyle,
+  Widget definitionListView(BuildContext context) {
+    return ListView.builder(
+      itemCount: wordDetails.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(wordDetails[index]['def']),
+        );
+      },
+    );
+  }
+
+  List<Column> definitions() {
+    List<Column> definitions = [];
+    for (var word in wordDetails) {
+      String singleDefinition = word['def'];
+
+      var oneDefinition = Column(
+        children: <Widget>[
+          Text(
+            singleDefinition,
+            style: kDefinitionTextStyle,
+          ),
+          Divider(),
+        ],
       );
-    definitions.add(oneDefinition);
+      definitions.add(oneDefinition);
     }
     return definitions;
-
   }
 
   @override
@@ -36,7 +53,8 @@ class WordPage extends StatelessWidget {
               children: <Widget>[
                 BackSearchButton(),
                 Text(
-                  wordDetails['word'],
+                  'dummy',
+                  // wordDetails['word'],
                   style: kTitleStyle,
                 ),
                 SizedBox(height: 20.0),
@@ -47,8 +65,8 @@ class WordPage extends StatelessWidget {
                 SizedBox(
                   height: 5.0,
                 ),
-                Column(
-                  children: definitions(),
+                Expanded(
+                  child: DefinitionsListView(wordDetails: wordDetails),
                 ),
                 SizedBox(height: 20.0),
                 Text(
@@ -59,7 +77,8 @@ class WordPage extends StatelessWidget {
                   height: 5.0,
                 ),
                 Text(
-                 wordDetails['example'],
+                  'dummy',
+                  //  wordDetails['example'],
                   style: kDefinitionTextStyle,
                 ),
               ],
@@ -68,7 +87,60 @@ class WordPage extends StatelessWidget {
         ));
   }
 }
-//                Text(
-//                  wordDetails['definition'],
-//                  style: kDefinitionTextStyle,
-//                ),
+
+class DefinitionsListView extends StatelessWidget {
+  final wordDetails;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: wordDetails.length,
+      itemBuilder: (context, index) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            //Type Text
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: Text(
+                '(${wordDetails[index]['type']}) ',
+                style:
+                    TextStyle(color: Colors.blue, fontStyle: FontStyle.italic),
+              ),
+            ),
+            SizedBox(height: 3.0),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                //Index Text
+                Text(
+                  '${(index + 1).toString()}. ',
+                  style: TextStyle(fontWeight: FontWeight.w900),
+                ),
+
+                //Definition Text
+                Expanded(
+                  child: Text(
+                    wordDetails[index]['def']
+                        .toString()
+                        .replaceAll(new RegExp(r'[^\w\s]+'), ''),
+                    style: kDefinitionTextStyle,
+                  ),
+                ),
+              ],
+            ),
+           //Example text
+            Text(
+              '    Eg.- ${wordDetails[index]['eg'].toString().replaceAll(new RegExp(r'[^\w\s]+'), ' ')}',
+              style: TextStyle(color:Colors.black54,fontStyle: FontStyle.italic),
+            ),
+
+            Divider(),
+          ],
+        );
+      },
+    );
+  }
+
+  DefinitionsListView({this.wordDetails});
+}

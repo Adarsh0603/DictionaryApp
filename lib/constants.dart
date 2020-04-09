@@ -25,8 +25,8 @@ const kSearchBoxDecoration = InputDecoration(
 );
 
 const kCategoryTextStyle=TextStyle(
-  fontWeight: FontWeight.bold,
-  fontSize: 16.0,
+  fontWeight: FontWeight.w700,
+  fontSize: 18.0,
   fontFamily: 'ContentFont',
 );
 const kDefinitionTextStyle=TextStyle(
