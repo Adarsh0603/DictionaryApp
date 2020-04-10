@@ -18,5 +18,5 @@ Powered by the OwlBot API.
 
 ![word_page](images/word.jpg)
 
-http://github.com - automatic!
+
 [UI Design Taken from Dribbble by Yoshiki Schmitz](https://dribbble.com/shots/6029129-Minimal-Dictionary-App)
