@@ -5,7 +5,7 @@ class BackSearchButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FlatButton(
-
+splashColor: Colors.white,
       padding: EdgeInsets.all(0.0),
       onPressed: () {
         Navigator.pop(context);

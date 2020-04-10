@@ -43,7 +43,7 @@ class WordPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 30.0),
                   child: Text(
-                    word,
+                    word.toString().toLowerCase(),
                     // wordDetails['word'],
                     style: kWordStyle,
                   ),
