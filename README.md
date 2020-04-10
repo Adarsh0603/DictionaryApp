@@ -17,3 +17,6 @@ Powered by the OwlBot API.
 <br/>
 
 ![word_page](images/word.jpg)
+
+http://github.com - automatic!
+[GitHub](http://github.com)
