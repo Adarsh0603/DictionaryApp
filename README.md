@@ -10,6 +10,10 @@ Powered by the OwlBot API.
 ![feature](images/feature.png)
 
 
-### Screenshots
+# Screenshots
 ![search_page](images/search.jpg)
+<br/>
+<br/>
+<br/>
+
 ![word_page](images/word.jpg)
