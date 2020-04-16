@@ -1,5 +1,5 @@
 # Dictionary
-
+[Get it on Google Play](https://play.google.com/store/apps/details?id=com.adarshverma.dictionaryapp&hl=en_US)
 A minimal-design dictionary app created with **Flutter**.<br/>
 Almost every definition for a word
 with examples.<br/>
